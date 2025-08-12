@@ -1,21 +1,25 @@
 {
+  "homepage": "https://krzyzak321.github.io/portfolio.com/",
   "name": "portfolio-3d-js",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
-    "@react-three/fiber": "^8.16.7",
     "@react-three/drei": "^9.94.1",
+    "@react-three/fiber": "^8.16.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "three": "^0.157.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
+    "gh-pages": "^6.3.0",
     "vite": "^5.2.0"
   }
 }
