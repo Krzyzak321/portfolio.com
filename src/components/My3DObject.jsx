@@ -35,7 +35,7 @@ import { useGLTF } from '@react-three/drei';
 export function My3DObject({ isFocused, cursorPos }) {
   const group = useRef();
   const { nodes } = useGLTF('/portfolio.com/aparatznetawireframe.glb');
-  const [rotation, setRotation] = useState([Math.PI / 4, 0, 0]);
+  const [rotation, setRotation] = useState([0, 0, 0]);
   
   // Animate rotation
   useFrame(() => {
@@ -51,7 +51,7 @@ export function My3DObject({ isFocused, cursorPos }) {
   });
 
   return (
-    <group ref={group} dispose={null}>
+    <group ref={group} scale={[0.05, 0.05, 0.05]} rotation={[0, Math.PI / 4, 0]} dispose={null}>
       <mesh
         castShadow
         receiveShadow
