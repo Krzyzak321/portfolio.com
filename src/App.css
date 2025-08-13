@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+.app-root {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #222;
+  color: #eee;
+  min-height: 100vh;
+}
+header h1 {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  gap: 8px;
+}
+.three-section {
+  background: #111;
+  border-radius: 8px;
+  margin: 16px 0;
+  box-shadow: 0 2px 16px #000;
+}
