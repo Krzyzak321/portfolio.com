@@ -1,0 +1,25 @@
+.animated-image-zoom-overlay {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Don't block other content */
+  background: transparent;
+}
+
+.animated-image {
+  transition:
+    transform 1.2s cubic-bezier(0.4, 0.8, 0.2, 1),
+    opacity 0.4s linear 1.1s;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.animated-image.zoom-in {
+  transform: scale(4); /* Big zoom! */
+  opacity: 0;          /* Fade out after zoom */
+}
