@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { My3DObject } from "./components/My3DObject";
 import { RoundedTiles } from "./components/RoundedTiles";
-import AnimatedImageZoom from "./components/AnimatedImageZoom";
+import { AnimatedImageZoom } from "./components/AnimatedImageZoom";
 import './App.css';
 
 const Section = ({ children }) => {
