@@ -35,22 +35,13 @@ const AnimatedImageZoom = ({
 
   return (
     <div className="animated-image-zoom-overlay">
-      {/* For PNG, swap <svg> for <img src={src} ... /> */}
-      <svg
+       <img
         ref={imgRef}
+        src={src}
+        alt="Animated zoom"
         className="animated-image"
-        style={{ transformOrigin: origin }}
-        width={400}
-        height={800}
-        viewBox="0 0 200 400"
-      >
-        {/* Replace this with your SVG or use <img /> for PNG! */}
-        <rect x="25" y="50" width="150" height="300" rx="30" fill="rgba(80,80,80,0.2)" />
-        <circle cx="100" cy="120" r="30" fill="rgba(80,80,80,0.13)" />
-        <rect x="65" y="320" width="70" height="30" rx="10" fill="rgba(80,80,80,0.18)" />
-        {/* Transparent center */}
-        <circle cx="100" cy="200" r="35" fill="transparent" stroke="rgba(80,80,80,0.13)" strokeWidth="6" />
-      </svg>
+        style={{ transformOrigin: origin, width: '400px', height: '800px' }}
+      />
     </div>
   );
 };

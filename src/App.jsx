@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { My3DObject } from "./components/My3DObject";
 import { RoundedTiles } from "./components/RoundedTiles";
-import { AnimatedImageZoom } from "./components/AnimatedImageZoom";
+import  AnimatedImageZoom from "./components/AnimatedImageZoom";
 import './App.css';
 
 const Section = ({ children }) => {
@@ -59,7 +59,7 @@ const App = () => {
   return (
     <div className="app-root">
       <header>
-        <h1>Portfolio 3D</h1>
+        <h1>Portfolio</h1>
         {/* === End AnimatedImageZoom === */}
         <div className="header-3d">
           <Canvas style={{
@@ -67,7 +67,7 @@ const App = () => {
             height: "40vh",
             pointerEvents: "none"
           }}>
-            <directionalLight position={[5, 5, 5]} intensity={1} />
+            <directionalLight position={[5, 5, 5]} intensity={2} />
             <My3DObject
               scale={[0.5, 0.5, 0.5]}
               isFocused={isFocused}
