@@ -2,8 +2,51 @@ import React, { useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { My3DObject } from "./components/My3DObject";
 import { RoundedTiles } from "./components/RoundedTiles";
+import { RoundedTile } from "./components/RoundedTile";
 import  AnimatedImageZoom from "./components/AnimatedImageZoom";
 import './App.css';
+// Animowane kafelki do menu
+const menuTiles = [
+  { label: "Start", color: "#ffb347", icon: "🏠", href: "https://www.whonix.org/" },
+  { label: "O mnie", color: "#77dd77", icon: "👤", href: "/about" },
+  { label: "Projekty", color: "#aec6cf", icon: "💼", href: "/projects" },
+  { label: "Kontakt", color: "#f49ac2", icon: "✉️", href: "/contact" },
+];
+
+const YMenu = () => {
+  const [visibleTiles, setVisibleTiles] = useState(0);
+
+  useEffect(() => {
+    let current = 0;
+    const interval = setInterval(() => {
+      current++;
+      setVisibleTiles(current);
+      if (current >= menuTiles.length) clearInterval(interval);
+    }, 260);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="ymenu-root">
+      {menuTiles.map((tile, idx) => (
+        <a
+          key={tile.label}
+          href={tile.href}
+          className={`ymenu-tile${idx < visibleTiles ? " fade-in" : ""}`}
+          style={{
+            background: tile.color,
+            transitionDelay: `${idx * 0.13}s`,
+            textDecoration: "none",
+            color: "inherit"
+          }}
+        >
+          <span className="ymenu-icon">{tile.icon}</span>
+          <span className="ymenu-label">{tile.label}</span>
+        </a>
+      ))}
+    </div>
+  );
+};
 
 const Section = ({ children }) => {
   const ref = React.useRef();
@@ -58,6 +101,8 @@ const App = () => {
   
   return (
     <div className="app-root">
+            <YMenu />
+
       <header>
         <h1>Portfolio</h1>
         {/* === End AnimatedImageZoom === */}
@@ -70,7 +115,7 @@ const App = () => {
             <directionalLight position={[5, 5, 5]} intensity={2} />
             <My3DObject
               scale={[0.5, 0.5, 0.5]}
-              isFocused={isFocused}
+              isFocused={window.innerWidth <= 600 ? false : isFocused}
               cursorPos={cursorPos}
             />
           </Canvas>

@@ -12,16 +12,7 @@ const dummyTiles = [
     content:
       "Suspendisse ac quam id ligula dictum tincidunt. Etiam facilisis.",
   },
-  {
-    title: "Projekt 3",
-    content:
-      "Aenean feugiat, neque sed dictum pretium, purus turpis gravida neque.",
-  },
-  {
-    title: "Projekt 4",
-    content:
-      "Ut vitae orci in urna cursus volutpat. Integer rutrum felis non.",
-  },
+  
 ];
 
 export const RoundedTiles = () => {
